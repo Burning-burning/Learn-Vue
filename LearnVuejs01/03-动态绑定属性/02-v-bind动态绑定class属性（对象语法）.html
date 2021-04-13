@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1 :class="active">{{message}}</h1>
+      <!-- <h1 :class="{类名：boolean, 类名：boolean}"></h1> -->
+      <h1 class="title" :class="{active: isActive, line: isLine}">
+        {{message}}
+      </h1>
+      <button @click="btnClick">改变颜色</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: '你好啊',
+          active: 'active',
+          isActive: true,
+          isLine: true,
+        },
+        methods: {
+          btnClick() {
+            this.isActive = !this.isActive
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
